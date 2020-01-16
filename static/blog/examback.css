@@ -1,0 +1,23 @@
+body {
+  background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+}
+.container {
+  width: 1000px;
+  height: 700px;
+  margin-top: 100px;
+  position:relative;
+}
+#loginForm {
+  width: 500px;
+  height: 400px;
+  position:relative;
+  z-index:10;
+}
+
+#image{
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+}

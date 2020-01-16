@@ -1,0 +1,80 @@
+{% extends "blog/basetest.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100% 100%;
+  background-image:url('../../media/loginpic.jpg');
+  position:
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* Add styles to the form container */
+.container {
+  position: relative;
+  left: 620px;
+  margin: 20px;
+  max-width: 300px;
+  height: 350px;
+  padding: 16px;
+  top:100px;
+  background-color: white;
+  box-shadow: 0px 5px 5px 5px ;
+}
+
+
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+</style>
+
+    <form method="POST" class="container">
+
+
+          {% csrf_token %}
+        <fieldset class="form-group">
+
+            <legend class="mb-3 black-important">
+                Login
+            </legend>
+            <small class="text-muted">
+            {{ form | crispy }}
+             </small>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Login</button>
+
+        <small class="text-muted">
+            Do you need an account? <a class="text-success" href="{% url 'register-users' %}">Sign up</a>
+        </small>
+              </div>
+
+          </fieldset>
+
+    </form>
+
+    </<body>
+
+    </html>
+{% endblock content %}
