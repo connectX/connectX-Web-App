@@ -1,0 +1,57 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/examback.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>connectX</title>
+    </head>
+    
+  <body>
+
+      <header class="site-header">
+      <nav
+              style="border-bottom: 1px solid rgba(255, 255, 255, 0.1)"
+              class="navbar navbar-expand navbar-light bg-light fixed-top">
+
+
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto pl-2">
+              <a class="navbar-brand" href="{% url 'blog-home' %}">
+             <img src="/media/logo.png" width="30" height="30" alt="logo">
+              </a>
+              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav pr-2">
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{% url 'post-create' %}">Add a Problem Statement</a>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-item nav-link" href="{% url 'register-users' %}">Register</a>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="examback" class="col-md-14">
+
+      <div class="col-md-14">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}">
+                      {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+        {% block content %}{% endblock %}
+      </div>
+
+    </main>
+  </body>
+    </html>

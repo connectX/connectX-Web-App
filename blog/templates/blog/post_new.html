@@ -1,0 +1,16 @@
+{% extends "blog/basetest1.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h3 class="white-important mt-5 px-5">
+        Add A New Problem Statement
+    </h3>
+    <form method="POST" class="col-12 col-md-6  pr-3 pr-md-0 px-5">
+        {% csrf_token %}
+        <fieldset class="form-group text-light">
+            {{ form | crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-success px-5" type="submit">Submit changes</button>
+        </div>
+    </form>
+{% endblock content %}
