@@ -1,4 +1,3 @@
-### Little twitter clone
+connectX is Web App which is Platform to connect startups and multinational companies.
 
-actual version on: <br>
-https://fiffeek.pythonanywhere.com/
+The app is built upon Django Framework.
